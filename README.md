@@ -1,7 +1,3 @@
----
-dev版
-修改
----
 
 ### **Molt（蜕）项目概述**
 
@@ -48,7 +44,7 @@ dev版
 - **安全**：Spring Security + JWT
 - **实时通知**：WebSocket
 - **中间件**：Redis（缓存）、RabbitMQ（异步任务）
-
+- **工具**：Hutool（Java工具库）
 #### **数据库**
 - **MySQL**（核心业务数据）
 - **MongoDB**（日志、非结构化数据）
