@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/back-end/molt-server/pom.xml">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/back-end/molt-server/pom.xml" />
+              <option name="updatedContent" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;&#10;         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&#10;         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;&#10;    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;&#10;&#10;    &lt;parent&gt;&#10;        &lt;groupId&gt;asia.wjm&lt;/groupId&gt;&#10;        &lt;artifactId&gt;back-end&lt;/artifactId&gt;&#10;        &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;&#10;    &lt;/parent&gt;&#10;&#10;    &lt;artifactId&gt;molt-server&lt;/artifactId&gt;&#10;    &lt;packaging&gt;jar&lt;/packaging&gt;&#10;&#10;    &lt;name&gt;molt-server&lt;/name&gt;&#10;    &lt;description&gt;Spring Boot Admin Server Module&lt;/description&gt;&#10;&#10;    &lt;properties&gt;&#10;        &lt;java.version&gt;17&lt;/java.version&gt;&#10;        &lt;spring-boot.version&gt;3.2.5&lt;/spring-boot.version&gt;&#10;    &lt;/properties&gt;&#10;&#10;    &lt;dependencies&gt;&#10;        &lt;dependency&gt;&#10;            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;&#10;            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;&#10;        &lt;/dependency&gt;&#10;        &lt;dependency&gt;&#10;            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;&#10;            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;&#10;            &lt;scope&gt;test&lt;/scope&gt;&#10;        &lt;/dependency&gt;&#10;    &lt;/dependencies&gt;&#10;&#10;    &lt;build&gt;&#10;        &lt;plugins&gt;&#10;            &lt;plugin&gt;&#10;                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;&#10;                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;&#10;            &lt;/plugin&gt;&#10;        &lt;/plugins&gt;&#10;    &lt;/build&gt;&#10;&lt;/project&gt;&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/back-end/pom.xml">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/back-end/pom.xml" />
+              <option name="originalContent" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;&#10;&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&#10;         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;&#10;    &lt;parent&gt;&#10;        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;&#10;        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;&#10;        &lt;version&gt;3.5.5&lt;/version&gt;&#10;        &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;&#10;    &lt;/parent&gt;&#10;    &lt;groupId&gt;asia.wjm&lt;/groupId&gt;&#10;    &lt;artifactId&gt;molt&lt;/artifactId&gt;&#10;    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;&#10;    &lt;modules&gt;&#10;        &lt;module&gt;molt-server&lt;/module&gt;&#10;        &lt;module&gt;molt-pojo&lt;/module&gt;&#10;        &lt;module&gt;molt-common&lt;/module&gt;&#10;    &lt;/modules&gt;&#10;    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;&#10;&#10;&lt;/project&gt;" />
+              <option name="updatedContent" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;&#10;&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&#10;         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;&#10;    &lt;parent&gt;&#10;        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;&#10;        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;&#10;        &lt;version&gt;3.5.5&lt;/version&gt;&#10;        &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;&#10;    &lt;/parent&gt;&#10;    &lt;groupId&gt;asia.wjm&lt;/groupId&gt;&#10;    &lt;artifactId&gt;molt&lt;/artifactId&gt;&#10;    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;&#10;    &lt;modules&gt;&#10;        &lt;module&gt;molt-server&lt;/module&gt;&#10;        &lt;module&gt;molt-pojo&lt;/module&gt;&#10;        &lt;module&gt;molt-common&lt;/module&gt;&#10;    &lt;/modules&gt;&#10;    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;&#10;    &lt;packaging&gt;pom&lt;/packaging&gt;&#10;&#10;&lt;/project&gt;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
