@@ -1,14 +1,31 @@
-package com.sky.utils;
+package asia.wjm.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
+
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
+import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
+import java.security.Key;
 import java.util.Date;
 import java.util.Map;
+import java.util.UUID;
+
+import static io.jsonwebtoken.Claims.ISSUER;
 
 public class JwtUtil {
+    // 密钥
+    private static final String BASE64_STRING_KEY_JWT = "oFd/+ENGA4riK9NtoJ59mDjoXna/fe2WNg6j/76p0sI=";
+    // 过期时间 单位毫秒
+    private static final long EXPIRATION_TIME = 3600000; // 1 hour in milliseconds
+    // 颁发者
+    private static final String ISSUER = "WeAdmin";
+    // 受众
+    // private static final String AUDIENCE = "http://localhost:8080/";
+
     /**
      * 生成jwt
      * 使用Hs256算法, 私匙使用固定秘钥
@@ -18,26 +35,26 @@ public class JwtUtil {
      * @param claims    设置的信息
      * @return
      */
+
     public static String createJWT(String secretKey, long ttlMillis, Map<String, Object> claims) {
-        // 指定签名的时候使用的签名算法，也就是header那部分
-        SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
+        Key key = Base64StringToJwtKey(BASE64_STRING_KEY_JWT);
+        Date issuedDate = new Date(System.currentTimeMillis());
+        Date ExpirationDate = new Date(System.currentTimeMillis() + EXPIRATION_TIME);
+        String Id = UUID.randomUUID().toString().replace("-", "");
 
-        // 生成JWT的时间
-        long expMillis = System.currentTimeMillis() + ttlMillis;
-        Date exp = new Date(expMillis);
-
-        // 设置jwt的body
-        JwtBuilder builder = Jwts.builder()
-                // 如果有私有声明，一定要先设置这个自己创建的私有的声明，这个是给builder的claim赋值，一旦写在标准的声明赋值之后，就是覆盖了那些标准的声明的
-                .setClaims(claims)
-                // 设置签名使用的签名算法和签名使用的秘钥
-                .signWith(signatureAlgorithm, secretKey.getBytes(StandardCharsets.UTF_8))
-                // 设置过期时间
-                .setExpiration(exp);
-
-        return builder.compact();
+        return Jwts.builder()
+                .setClaims(claims) // 自定义信息
+                .setIssuedAt(issuedDate)  // 签发时间
+                .setExpiration(ExpirationDate) // 设置过期时间
+                .signWith(key, SignatureAlgorithm.HS256) // 使用HS256对称加密算法签名
+                // .setAudience(AUDIENCE)
+                .setIssuer(ISSUER) // 签发者
+                .setId(Id) // ID 可选
+                .compact();
     }
-
+    public static Key Base64StringToJwtKey(String strBase64Key) {
+        return Keys.hmacShaKeyFor(Decoders.BASE64.decode(strBase64Key));
+    }
     /**
      * Token解密
      *
@@ -46,13 +63,12 @@ public class JwtUtil {
      * @return
      */
     public static Claims parseJWT(String secretKey, String token) {
-        // 得到DefaultJwtParser
-        Claims claims = Jwts.parser()
-                // 设置签名的秘钥
-                .setSigningKey(secretKey.getBytes(StandardCharsets.UTF_8))
-                // 设置需要解析的jwt
-                .parseClaimsJws(token).getBody();
-        return claims;
+        SecretKey key = Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
+        return Jwts.parser()
+                .setSigningKey(key)
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
     }
 
 }

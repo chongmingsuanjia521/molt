@@ -1,9 +1,9 @@
-package com.sky.interceptor;
+package asia.wjm.interceptor;
 
-import com.sky.constant.JwtClaimsConstant;
-import com.sky.context.BaseContext;
-import com.sky.properties.JwtProperties;
-import com.sky.utils.JwtUtil;
+
+import asia.wjm.context.BaseContext;
+import asia.wjm.properties.JwtProperties;
+import asia.wjm.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,15 +52,16 @@ public class JwtTokenUserInterceptor implements HandlerInterceptor {
             if (userIdObj == null) {
                 throw new RuntimeException("JWT中没有包含用户ID");
             }
-            Long userId = Long.valueOf(claims.get(JwtClaimsConstant.USER_ID).toString());
+            Long userId = Long.valueOf(claims.get("userId").toString());
             BaseContext.setCurrentId(userId);
-            log.info("当前员工id：{}", userId);
+            log.info("当前用户id：{}", userId);
             //3、通过，放行
             return true;
         } catch (Exception ex) {
             //4、不通过，响应401状态码
             log.error("JWT校验失败: {}", ex.getMessage());
             response.setStatus(401);
+            response.sendRedirect("/user/auth/login");
             return false;
         }
     }

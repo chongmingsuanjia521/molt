@@ -14,5 +14,11 @@
     <description>molt-common</description>
    <dependencies>
 
+       <dependency>
+           <groupId>io.jsonwebtoken</groupId>
+           <artifactId>jjwt-api</artifactId>
+           <version>0.12.3</version>
+           <scope>compile</scope>
+       </dependency>
    </dependencies>
 </project>

@@ -1,4 +1,4 @@
-package asia.wjm.intercepter;
+package asia.wjm.interceptor;
 
 
 import asia.wjm.context.BaseContext;
@@ -34,6 +34,7 @@ public class JwtTokenAdminInterceptor implements HandlerInterceptor {
      * @throws Exception
      */
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+
         //判断当前拦截到的是Controller的方法还是其他资源
         if (!(handler instanceof HandlerMethod)) {
             //当前拦截到的不是动态方法，直接放行
@@ -47,14 +48,15 @@ public class JwtTokenAdminInterceptor implements HandlerInterceptor {
         try {
             log.info("jwt校验:{}", token);
             Claims claims = JwtUtil.parseJWT(jwtProperties.getAdminSecretKey(), token);
-            Long empId = Long.valueOf(claims.get("username").toString());
-            BaseContext.setCurrentId(empId);
-            log.info("当前员工id：{}", empId);
+            Long adminId = Long.valueOf(claims.get("adminId").toString());
+            BaseContext.setCurrentId(adminId);
+            log.info("当前管理者id：{}", adminId);
             //3、通过，放行
             return true;
         } catch (Exception ex) {
-            //4、不通过，响应401状态码
             response.setStatus(401);
+            response.setContentType("application/json;charset=UTF-8");
+            response.getWriter().write("{\"code\":401,\"msg\":\"未登录或令牌失效\"}");
             return false;
         }
     }

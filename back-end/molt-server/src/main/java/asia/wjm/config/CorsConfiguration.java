@@ -2,16 +2,15 @@ package asia.wjm.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 
 @Configuration
-public class CrosConfiguration {
+public class CorsConfiguration {
     @Bean
     public CorsFilter corsFilter() {
-        CorsConfiguration config = new CorsConfiguration();
+        org.springframework.web.cors.CorsConfiguration config = new org.springframework.web.cors.CorsConfiguration();
         //允许所有域名进行跨域调用
         config.addAllowedOriginPattern("*");
         //允许跨越发送cookie

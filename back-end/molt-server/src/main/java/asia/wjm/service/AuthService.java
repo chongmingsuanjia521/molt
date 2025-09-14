@@ -1,12 +1,13 @@
-package asia.wjm.admin.service;
+package asia.wjm.service;
 
+import asia.wjm.DTO.AdminLoginDTO;
+import asia.wjm.DTO.AdminRegisterDTO;
 import asia.wjm.VO.AdminLoginVO;
-import asia.wjm.admin.mapper.AuthMapper;
 import asia.wjm.entity.Admin;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 
 public interface AuthService {
-    AdminLoginVO Login(AdminLoginVO adminLoginVO);
+    Admin Login(AdminLoginDTO adminLoginDTO);
+
+    void register(AdminRegisterDTO adminRegisterDTO);
 }

@@ -1,6 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+molt:
+  jwt:
+    admin-secret-key: wjm
+    admin-ttl: 7200000
+    admin-token-name: token
+    user-secret-key: wjm
+    user-ttl: 7200000
+    user-token-name: authentication
 
-</beans>
+spring:
+  datasource:
+    host: localhost
+    port: 3307
+    database: molt
+    username: root
+    password: 521521
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: asia.wjm.entity
+  configuration:
+    map-underscore-to-camel-case: true

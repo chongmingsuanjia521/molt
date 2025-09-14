@@ -3,10 +3,10 @@
   <component name="CopilotDiffPersistence">
     <option name="pendingDiffs">
       <map>
-        <entry key="$PROJECT_DIR$/back-end/admin_invite_code.sql">
+        <entry key="$PROJECT_DIR$/back-end/molt-server/src/main/java/asia/wjm/mapper/AdminInviteCodeMapper.java">
           <value>
             <PendingDiffInfo>
-              <option name="filePath" value="$PROJECT_DIR$/back-end/admin_invite_code.sql" />
+              <option name="filePath" value="$PROJECT_DIR$/back-end/molt-server/src/main/java/asia/wjm/mapper/AdminInviteCodeMapper.java" />
             </PendingDiffInfo>
           </value>
         </entry>
