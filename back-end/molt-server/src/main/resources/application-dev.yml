@@ -1,0 +1,22 @@
+molt:
+  jwt:
+    admin-secret-key: wjm
+    admin-ttl: 7200000
+    admin-token-name: token
+    user-secret-key: wjm
+    user-ttl: 7200000
+    user-token-name: authentication
+
+spring:
+  datasource:
+    host: localhost
+    port: 3307
+    database: molt
+    username: root
+    password: 521521
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: asia.wjm.entity
+  configuration:
+    map-underscore-to-camel-case: true
