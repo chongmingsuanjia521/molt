@@ -91,7 +91,7 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
         registry.addResourceHandler("/doc.html").addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
-
+//配置消息转换器
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         log.info("消息转换器...");

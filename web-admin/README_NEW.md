@@ -187,7 +187,73 @@ npm run build
    - [ ] 性能优化
    - [ ] 移动端适配
    - [ ] 暗色主题支持
+### 🎯 核心功能完善计划
+1. 用户管理模块 (最优先)
 
+    当前已有登录注册，还需要：
+
+#### 页面需求：
+
+    - 用户列表页面（表格、搜索、分页）
+    - 用户详情/编辑对话框
+    - 用户状态管理
+2. 自律管理核心功能
+
+根据README描述的核心功能：
+
+3. 社交功能管理
+4. 系统管理功能
+
+### 接口
+// 用户管理API接口
+- GET /api/users - 用户列表（分页、搜索、筛选）
+- GET /api/users/:id - 用户详情
+- PUT /api/users/:id - 编辑用户信息
+- DELETE /api/users/:id - 删除用户
+- PUT /api/users/:id/status - 启用/禁用用户
+- GET /api/users/statistics - 用户统计数据
+
+
+// 目标管理
+- GET /api/goals - 目标列表
+- POST /api/goals - 创建目标
+- PUT /api/goals/:id - 编辑目标
+- DELETE /api/goals/:id - 删除目标
+
+// 打卡记录管理
+- GET /api/check-ins - 打卡记录
+- GET /api/check-ins/statistics - 打卡统计
+
+// 成就系统管理
+- GET /api/achievements - 成就列表
+- POST /api/achievements - 创建成就
+- PUT /api/achievements/:id - 编辑成就
+
+// 动态管理
+- GET /api/posts - 动态列表
+- PUT /api/posts/:id/status - 审核动态
+- DELETE /api/posts/:id - 删除动态
+
+// 评论管理
+- GET /api/comments - 评论列表
+- PUT /api/comments/:id/status - 审核评论
+- DELETE /api/comments/:id - 删除评论
+
+// 社区管理
+- GET /api/communities - 社区列表
+- POST /api/communities - 创建社区
+
+// 系统配置
+- GET /api/system/config - 系统配置
+- PUT /api/system/config - 更新配置
+
+// 操作日志
+- GET /api/system/logs - 操作日志
+
+// 数据统计
+- GET /api/statistics/dashboard - 仪表盘数据
+- GET /api/statistics/users - 用户统计
+- GET /api/statistics/content - 内容统计
 ---
 
 ## **设计理念**

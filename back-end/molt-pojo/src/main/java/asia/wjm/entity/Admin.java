@@ -25,5 +25,6 @@ public class Admin {
     private Date updateTime; // 更新时间
     private Long createUser; // 创建人
     private Long updateUser; // 修改人
+    private String role; // 角色
 
 }

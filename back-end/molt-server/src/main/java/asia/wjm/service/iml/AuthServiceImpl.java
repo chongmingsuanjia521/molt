@@ -7,7 +7,6 @@ import asia.wjm.entity.AdminInviteCode;
 import asia.wjm.mapper.AdminMapper;
 import asia.wjm.mapper.InviteCodeMapper;
 import asia.wjm.service.AuthService;
-import com.fasterxml.jackson.databind.util.BeanUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,19 +25,14 @@ public class AuthServiceImpl implements AuthService {
 
     @Autowired
     private InviteCodeMapper inviteCodeMapper;
+
     @Override
-    public Admin Login(AdminLoginDTO adminLoginDTO) {
+    public Admin login(AdminLoginDTO adminLoginDTO) {
         String username = adminLoginDTO.getUsername();
 
-        Admin admin = adminMapper.getAdminByUsername(username);
+        asia.wjm.entity.Admin admin = adminMapper.getAdminByUsername(username);
         if (admin != null) {
-            // 验证密码
-            //用md5加密
-
             String encodedPassword= DigestUtils.md5DigestAsHex(adminLoginDTO.getPassword().getBytes());
-            log.info("加密前密码："+adminLoginDTO.getPassword());
-            log.info("加密后密码："+encodedPassword);
-            log.info("数据库密码："+admin.getPassword());
             if (!admin.getPassword().equals(encodedPassword)) {
                 // 登录成功
                 throw new RuntimeException("密码错误");
@@ -69,7 +63,9 @@ public class AuthServiceImpl implements AuthService {
         String encodedPassword= DigestUtils.md5DigestAsHex(adminRegisterDTO.getPassword().getBytes());
 
         Admin admin=new Admin();
+
         BeanUtils.copyProperties(adminRegisterDTO,admin);
+        admin.setPassword(encodedPassword);
         adminMapper.insert(admin);
 
     }

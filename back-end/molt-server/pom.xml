@@ -64,7 +64,12 @@
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>3.0.3</version>
         </dependency>
-
+        <!-- 添加Druid依赖 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid}</version>
+        </dependency>
         <!-- MySQL Driver -->
         <dependency>
             <groupId>mysql</groupId>
