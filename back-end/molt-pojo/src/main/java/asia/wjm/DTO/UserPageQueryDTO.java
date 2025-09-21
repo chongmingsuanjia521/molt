@@ -9,11 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AdminRegisterDTO {
-    String username;
-    String name;
-    String phone;
-    String sex;
-    String password;
-    String inviteCode;
+public class UserPageQueryDTO {
+    private Integer page;
+    private Integer size;
+    private String name;
+    private String sex;
 }

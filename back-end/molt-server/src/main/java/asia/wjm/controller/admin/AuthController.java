@@ -33,13 +33,14 @@ public class AuthController {
     @PostMapping("/login")
     public Result<AdminLoginVO> login(@RequestBody AdminLoginDTO adminLoginDTO){
         log.info("管理员登录：{}",adminLoginDTO);
-        Admin userInfo= authService.Login(adminLoginDTO);
+        Admin userInfo= authService.login(adminLoginDTO);
         //返回登录信息
         AdminLoginVO adminLoginVO=new AdminLoginVO();
         adminLoginVO.setUserInfo(userInfo);
         //登录成功后，生成jwt令牌
         Map<String, Object> claims = new HashMap<>();
         claims.put("adminId", userInfo.getId());
+        claims.put("username", userInfo.getUsername());
         String token = JwtUtil.createJWT(
                 jwtProperties.getAdminSecretKey(),
                 jwtProperties.getAdminTtl(),

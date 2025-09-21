@@ -43,10 +43,7 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
+            <!-- 已移除 spring-boot-maven-plugin，pojo模块无需可执行jar打包 -->
         </plugins>
     </build>
 
