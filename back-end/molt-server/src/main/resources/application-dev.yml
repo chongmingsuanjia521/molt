@@ -7,6 +7,11 @@ molt:
     user-secret-key: b2f8e3a4c9d6e7f1b2c3d4e5f6a7b8c9
     user-ttl: 86400000
     user-token-name: authentication
+  alioss:
+    access-key-id: ${ACCESS_KEY_ID}
+    access-key-secret: ${ACCESS_KEY_SECRET}
+    endpoint: ${ENDPOINT}
+    bucket-name: ${BUCKET_NAME}
 
 spring:
   datasource:
